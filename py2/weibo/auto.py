@@ -72,13 +72,24 @@ if __name__ == '__main__':
 
     while True:
         client = init_login()
+
         t = time.localtime()
-        memo = memo.getmemo()
+        a = memo.getmemo()
         print u"开始发送！"
-        mes = '现在是北京时间'+str(t.tm_hour)+'时'+str(t.tm_min)+'分'+str(t.tm_sec)+'秒，早上好！' + name[num]+ "曾经说过：" + memo.encode('utf8')
+        mes = '现在是北京时间'+str(t.tm_hour)+'时'+str(t.tm_min)+'分'+str(t.tm_sec)+'秒，早上好！' + name[num]+ "曾经说过：" + a.encode('utf8')
         send_mes(client,mes)
         print u"开始休眠！"
-        time.sleep(43200)
+        time.sleep(21600)
+
+        t = time.localtime()
+        b = memo.getmemo()
+        print u"开始发送！"
+        num = randint(0,len(name)-1)
+        mes = '现在是北京时间'+str(t.tm_hour)+'时'+str(t.tm_min)+'分'+str(t.tm_sec)+'秒，中午好！' + name[num]+ "曾经说过：" + b.encode('utf8')
+        send_mes(client,mes)
+        print u"开始休眠！"
+        time.sleep(21600)
+
         print u"开始发送！"
         t = time.localtime()
         mes='现在是北京时间'+str(t.tm_hour)+'时'+str(t.tm_min)+'分'+str(t.tm_sec)+'秒，今天的你学习了吗？'
